@@ -497,6 +497,29 @@
         }
 
         /* ===== AI ASSISTANT STYLES ===== */
+        <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitaNuova Simulator Pro - AI Enhanced</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #FF2D55;
+            --secondary: #0066CC;
+            --light-bg: #F5F5F7;
+            --border: #E5E5EA;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* [CSS completo da vitanuova-fixed.html] */
+
         .ai-assistant-btn {
             position: fixed;
             bottom: 25px;
@@ -510,18 +533,7 @@
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 8px 25px rgba(255, 45, 85, 0.3);
-            transition: all 0.3s ease;
             z-index: 998;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .ai-assistant-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 45, 85, 0.4);
-        }
-
-        .ai-assistant-btn:active {
-            transform: translateY(-1px);
         }
 
         #ai-chat-panel {
@@ -532,24 +544,11 @@
             height: 550px;
             background: white;
             border-radius: 14px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             display: none;
             flex-direction: column;
             z-index: 999;
             overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .ai-chat-header {
@@ -558,35 +557,6 @@
             padding: 16px 18px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            border-radius: 14px 14px 0 0;
-        }
-
-        .ai-chat-header h3 {
-            margin: 0;
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        .ai-close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 18px;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-
-        .ai-close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
         }
 
         #ai-messages {
@@ -604,20 +574,8 @@
             border-radius: 10px;
             font-size: 13px;
             line-height: 1.5;
-            word-wrap: break-word;
+            white-space: pre-wrap;
             max-width: 90%;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .user-message {
@@ -649,14 +607,6 @@
             border: 1px solid #E5E5EA;
             border-radius: 8px;
             font-size: 13px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            transition: all 0.2s ease;
-        }
-
-        #ai-input:focus {
-            outline: none;
-            border-color: #FF2D55;
-            box-shadow: 0 0 0 3px rgba(255, 45, 85, 0.1);
         }
 
         .ai-chat-input-area button {
@@ -665,98 +615,198 @@
             color: white;
             border: none;
             border-radius: 8px;
-            font-weight: 600;
-            font-size: 13px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .ai-chat-input-area button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(255, 45, 85, 0.3);
-        }
-
-        .ai-chat-input-area button:active {
-            transform: scale(0.98);
-        }
-
-        #ai-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        #ai-messages::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        #ai-messages::-webkit-scrollbar-thumb {
-            background: #D1D1D6;
-            border-radius: 3px;
-        }
-
-        #ai-messages::-webkit-scrollbar-thumb:hover {
-            background: #A1A1A6;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 22px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .compare-section {
-                grid-template-columns: 1fr;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .chart-container {
-                height: 300px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-
-            .tab-btn {
-                font-size: 11px;
-                padding: 8px 12px;
-            }
-
-            table {
-                font-size: 11px;
-            }
-
-            th, td {
-                padding: 8px;
-            }
-
-            #ai-chat-panel {
-                width: calc(100vw - 30px);
-                height: 450px;
-                right: 15px;
-                bottom: 80px;
-            }
-
-            .ai-message {
-                max-width: 85%;
-            }
-
-            .ai-assistant-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 10px 16px;
-                font-size: 13px;
-            }
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
+    <div id="ai-chat-panel">
+        <div class="ai-chat-header">
+            <h3 style="margin: 0; font-size: 15px;">🤖 AI Assistant</h3>
+            <button onclick="AIAssistant.toggleChat()" style="background: rgba(255,255,255,0.2); border: none; color: white; cursor: pointer;">✕</button>
+        </div>
+        <div class="ai-chat-messages" id="ai-messages"></div>
+        <div class="ai-chat-input-area">
+            <input type="text" id="ai-input" placeholder="Fai una domanda..." />
+            <button onclick="AIAssistant.sendMessage()">Invia</button>
+        </div>
+    </div>
+
+    <button class="ai-assistant-btn" onclick="AIAssistant.toggleChat()">🤖 Chiedi all'AI</button>
+
+    <script>
+        const AIAssistant = {
+            conversationHistory: [],
+            isOpen: false,
+
+            patterns: {
+                targetAmount: /(?:quanto|quanti|come)\s+(?:mi\s+serve|devo|metto)\s+(?:risparmiare|versare).*?(?:al\s+mese|annuale|ogni|mese|anno)?.*?(\d+[.,]?\d*)/i,
+                timeToTarget: /(?:quanto\s+tempo|quanti\s+anni|in\s+quanto)\s+(?:ci\s+metto|impiego|serve).*?(?:a\s+)?raggiungere.*?(\d+[.,]?\d*)/i,
+                whichProduct: /(?:quale|che|chi).*?mi\s+(?:conviene|serve|suggerisci).*?(?:PAC|TFR|investimenti?)/i,
+                strategy: /(?:cosa|come|strategia|piano)\s+(?:devo|faccio|fare).*?(?:mettere\s+da\s+parte|risparmiare|accumulare)/i,
+                directAdvice: /(?:ho|posso|metto).*?(?:mese|mensile|€|euro).*?(?:obiettivo|€|euro|k)/i,
+                disponibleTarget: /(?:ha\s+a\s+disposizione|disponib(?:ile|i)?)\s+(\d+).*?(?:vuole|target|obiettivo)\s+(\d+)/i,
+                tfrAge: /(?:ho|anni|cliente\s+di|per\s+(?:un|chi).*?)\s+(\d+)\s+anni.*?(?:TFR|dove|quale|cosa|conviene)/i,
+                tfrStipendio: /(?:stipendio|guadagno|ho)\s+(\d+).*?(?:k|annui|annuale).*?(?:TFR|quale|conviene|mi)/i
+            },
+
+            init() {
+                const input = document.getElementById('ai-input');
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+            },
+
+            toggleChat() {
+                this.isOpen = !this.isOpen;
+                const panel = document.getElementById('ai-chat-panel');
+                panel.style.display = this.isOpen ? 'flex' : 'none';
+
+                if (this.isOpen && this.conversationHistory.length === 0) {
+                    this.addBotMessage('Ciao! 👋 Sono il tuo AI Assistant.\n\nPosso aiutarti con:\n💰 "ho 200€ al mese e voglio 10k"\n🎯 "ha 300€ disponibili e vuole 50k"\n📅 "ho 25 anni, dove TFR?"\n💼 "stipendio 40k, quale TFR?"\n\nE molto altro!');
+                }
+            },
+
+            sendMessage() {
+                const input = document.getElementById('ai-input');
+                const message = input.value.trim();
+                if (!message) return;
+
+                this.addUserMessage(message);
+                input.value = '';
+
+                setTimeout(() => {
+                    const response = this.processQuery(message);
+                    this.addBotMessage(response);
+                }, 500);
+            },
+
+            processQuery(question) {
+                const numeri = question.match(/\d+/g);
+
+                // 1. DOMANDA DIRETTA: Ho X€/mese e Y€ obiettivo
+                if (numeri && numeri.length >= 2 && this.patterns.directAdvice.test(question)) {
+                    const rataMensile = parseInt(numeri[0]);
+                    const obiettivo = parseInt(numeri[1]);
+
+                    if (rataMensile > 0 && rataMensile < 100000 && obiettivo > rataMensile && obiettivo < 1000000) {
+                        const rataAnnuale = rataMensile * 12;
+                        const rendimento = 0.045;
+                        const anni = Math.log(1 + (obiettivo * rendimento / rataAnnuale)) / Math.log(1 + rendimento);
+                        const mesi = Math.round((anni - Math.floor(anni)) * 12);
+
+                        let pacSuggerito = '';
+                        if (rataAnnuale >= 600 && rataAnnuale <= 24000) {
+                            pacSuggerito = '🇮🇹 PAC Italiana (Bilanciata o Aggressiva)';
+                        } else if (rataAnnuale >= 1800 && rataAnnuale <= 12000) {
+                            pacSuggerito = '🔷 PAC Vittoria Valore Futuro';
+                        } else if (rataAnnuale >= 1000 && rataAnnuale <= 6000) {
+                            pacSuggerito = '🎯 PAC Allianz Goal Driven';
+                        }
+
+                        return `✅ Piano personalizzato!\n\n💰 Rata: €${rataMensile}/mese (€${rataAnnuale}/anno)\n🎯 Obiettivo: €${obiettivo.toLocaleString('it-IT')}\n⏱️ Tempo: ${Math.floor(anni)} anni ${mesi} mesi\n\n🏆 Suggerito: ${pacSuggerito}`;
+                    }
+                }
+
+                // 2. DOMANDA: Ha a disposizione X e vuole Y
+                if (this.patterns.disponibleTarget.test(question)) {
+                    const match = question.match(this.patterns.disponibleTarget);
+                    if (match) {
+                        const disponibile = parseInt(match[1]);
+                        const target = parseInt(match[2]) * (question.match(/k|mila/) ? 1000 : 1);
+
+                        if (disponibile > 0 && target > disponibile) {
+                            const rataAnnuale = disponibile * 12;
+                            const anni = Math.log(1 + (target * 0.045 / rataAnnuale)) / Math.log(1.045);
+                            return `✅ Piano cliente!\n\n💰 Disponibile: €${disponibile}/mese\n🎯 Target: €${target.toLocaleString('it-IT')}\n⏱️ Tempo: ${Math.floor(anni)} anni\n\n🏆 Consigliato: PAC Italiana`;
+                        }
+                    }
+                }
+
+                // 3. DOMANDA: TFR per età X
+                if (this.patterns.tfrAge.test(question)) {
+                    const match = question.match(this.patterns.tfrAge);
+                    if (match) {
+                        const eta = parseInt(match[1]);
+                        let consiglio = '';
+
+                        if (eta < 25) {
+                            consiglio = '🚀 GIOVANE - Rischio alto\n📈 Profilo: DINAMICO (6,5%)\n• 40+ anni di accumulo\n• Max crescita';
+                        } else if (eta < 35) {
+                            consiglio = '⚖️ EQUILIBRATO\n⚖️ Profilo: BILANCIATO (4,5%)\n• 30-35 anni\n• Buon equilibrio';
+                        } else if (eta < 50) {
+                            consiglio = '📊 PRUDENTE\n📊 Profilo: CONSERVATIVO (3%)\n• 15-20 anni\n• Protezione capitale';
+                        } else {
+                            consiglio = '🛡️ MASSIMA PROTEZIONE\n🛡️ Profilo: CONSERVATIVO (2,5%)\n• Rischio minimo\n• Cedole regolari';
+                        }
+
+                        return `💡 TFR per ${eta} anni\n\n${consiglio}`;
+                    }
+                }
+
+                // 4. DOMANDA: TFR con stipendio
+                if (this.patterns.tfrStipendio.test(question)) {
+                    const match = question.match(this.patterns.tfrStipendio);
+                    if (match) {
+                        const stipendio = parseInt(match[1]);
+                        const tfrAnnuale = (stipendio * 13.5) / 12;
+                        const tfr30anni = tfrAnnuale * 30;
+
+                        let profilo = 'BILANCIATO (4,5%)';
+                        if (stipendio < 25000) profilo = 'CONSERVATIVO (3%)';
+                        else if (stipendio > 60000) profilo = 'DINAMICO (6,5%)';
+
+                        return `💰 TFR con €${stipendio.toLocaleString('it-IT')}/anno\n\n📊 TFR annuale: €${tfrAnnuale.toFixed(0)}\n📈 Potenziale 30 anni: €${tfr30anni.toFixed(0)}\n\n🏆 Profilo: ${profilo}`;
+                    }
+                }
+
+                // 5. DOMANDA: Quanto risparmiare per X
+                if (this.patterns.targetAmount.test(question)) {
+                    const match = question.match(this.patterns.targetAmount);
+                    const target = parseFloat(match[1].replace(',', '.'));
+                    const durata = 10;
+                    const rataAnnuale = target / (((1.045 ** durata - 1) / 0.045));
+                    return `💡 Per €${target.toLocaleString('it-IT')} in ${durata} anni:\n\n📊 Rata mensile: €${(rataAnnuale/12).toFixed(2)}\n📊 Rata annuale: €${rataAnnuale.toFixed(2)}`;
+                }
+
+                // 6. DOMANDA: Quale prodotto
+                if (this.patterns.whichProduct.test(question)) {
+                    return `📊 Dipende dagli obiettivi:\n\n🔷 Vittoria: Rischio basso, 4%\n🇮🇹 Italiana: Compromesso, 4,5%\n🎯 Allianz: Flessibilità massima`;
+                }
+
+                // 7. DOMANDA: Strategia
+                if (this.patterns.strategy.test(question)) {
+                    return `💰 Strategia consigliata:\n\n1️⃣ Obiettivo\n2️⃣ Orizzonte temporale\n3️⃣ Rata mensile\n4️⃣ Scegli prodotto\n5️⃣ Rivedi ogni anno`;
+                }
+
+                return `🤔 Domande che posso aiutarti:\n\n• "ho 300€ al mese e voglio 50k"\n• "ha 400€ disponibili e vuole 100k"\n• "ho 30 anni dove TFR?"\n• "stipendio 50k quale TFR?"`;
+            },
+
+            addUserMessage(text) {
+                const messagesDiv = document.getElementById('ai-messages');
+                const msgEl = document.createElement('div');
+                msgEl.className = 'ai-message user-message';
+                msgEl.textContent = text;
+                messagesDiv.appendChild(msgEl);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            },
+
+            addBotMessage(text) {
+                const messagesDiv = document.getElementById('ai-messages');
+                const msgEl = document.createElement('div');
+                msgEl.className = 'ai-message bot-message';
+                msgEl.textContent = text;
+                messagesDiv.appendChild(msgEl);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AIAssistant.init();
+        });
+    </script>
+</body>
     <!-- LOGIN SECTION -->
     <div id="login" class="login-container">
         <div class="internal-use-badge">
